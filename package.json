@@ -1,0 +1,27 @@
+{
+  "name": "serverless-asset-pipeline",
+  "version": "1.0.0",
+  "description": "Asset pipeline plugin.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Swaven",
+  "license": "MIT",
+  "keywords": [
+    "serverless",
+    "serverless framework",
+    "serverless plugin",
+    "minification"
+  ],
+  "dependencies": {
+    "clean-css": "^5.3.1",
+    "glob": "^8.0.3",
+    "mkdirp": "^1.0.4",
+    "rimraf": "^3.0.2",
+    "terser": "^5.15.0"
+  },
+  "peerdependencies":{
+    "serverless" : "~3.22.0"
+  }
+}
