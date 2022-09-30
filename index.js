@@ -34,6 +34,8 @@ module.exports = class AssetPipelinePlugin {
 
     if  (cliOptions?.function)
       this.funcName = cliOptions.function
+    if (cliOptions?.stage)
+      this.stage = cliOptions.stage
 
     this.hooks = {
       initialize: () => this.init(),
@@ -57,6 +59,8 @@ module.exports = class AssetPipelinePlugin {
 
     const globOpts = {nodir: true}
 
+    this.log.verbose("[sap] stage:" + this.stage)
+
     functions.forEach(async name => {
       const cfg = this.tasks[name]
       
@@ -64,8 +68,6 @@ module.exports = class AssetPipelinePlugin {
         this.log.verbose('[sap] ignore function ' + name)
         return
       }
-
-      this.log.verbose("[sap] " + name)
 
       let prefix = cfg.src.substring(0, cfg.src.indexOf('*'))
       
@@ -126,7 +128,10 @@ module.exports = class AssetPipelinePlugin {
 
   async init(){
     this.log.verbose("[sap] init")
-    this.stage = this.serverless.service.provider.stage
+
+    if (!this.stage)
+      this.stage = this.serverless.service.provider.stage
+
     this.tasks = {}
 
     const config = this.serverless.configurationInput.custom['serverless-asset-pipeline']
@@ -160,6 +165,7 @@ module.exports = class AssetPipelinePlugin {
 
     await Promise.all(rmp) // await deletion 
     this.log.verbose(this.tasks)
+    this.log.verbose(this.settings)
   }
 }
 
