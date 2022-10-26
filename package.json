@@ -1,6 +1,6 @@
 {
   "name": "serverless-asset-pipeline",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Asset pipeline plugin.",
   "main": "index.js",
   "scripts": {

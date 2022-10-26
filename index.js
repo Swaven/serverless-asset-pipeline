@@ -45,6 +45,7 @@ module.exports = class AssetPipelinePlugin {
       
       // sls offline
       'before:offline:start': () => this.run(),
+      'before:offline:start:init': () => this.run(),
 
       // local invoke & global deploy
       'before:package:cleanup': () => this.run()
@@ -52,7 +53,7 @@ module.exports = class AssetPipelinePlugin {
   }
 
   // hook handler
-  run(){
+  async run(){
 
     // find which function to process
     const functions = this.funcName ? [this.funcName] : Object.keys(this.serverless.service.functions)
@@ -91,6 +92,8 @@ module.exports = class AssetPipelinePlugin {
         this.log.verbose(ex)
       }
     })
+
+    
   }
 
   // copies and optionally transforms the file
