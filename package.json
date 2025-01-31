@@ -19,7 +19,7 @@
     "glob": "^8.0.3",
     "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2",
-    "terser": "^5.15.0"
+    "terser": "^5.37.0"
   },
   "peerdependencies":{
     "serverless" : "~3.22.0"
