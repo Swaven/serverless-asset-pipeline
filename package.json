@@ -15,7 +15,7 @@
     "minification"
   ],
   "dependencies": {
-    "clean-css": "^5.3.1",
+    "clean-css": "^5.3.3",
     "glob": "^8.0.3",
     "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2",
